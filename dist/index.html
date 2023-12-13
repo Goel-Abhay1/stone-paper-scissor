@@ -4,31 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/87fe39bb20.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="border-2 border-violet-500 h-28 w-screen mt-5 flex justify-center items-center ">
-        <h1 class="text-center items-center border-2 border-violet-950 text-4xl font-semibold text-slate-600">
-            Stone Paper Scissor Game
+    <header>
+        <h1>
+            Stone Paper Scissor
         </h1>
     </header>
-    <main class=" w-screen mt-8 flex justify-around flex-col items-center bg-slate-800 " style="background-image: url(star.png); background-size: px;"
-    >
-        <div>
-            <div>
-                <img src="" alt="">
-                <p></p>
+    <main>
+        <div id="imgContainer">
+            <div style="display: flex;flex-direction: column;align-items: center;">
+                <img src="./rock.png" alt="" height="100px" id="choiceImg">
+                <p id="caption" style="align-self: stretch;">Rock  <i class="fa-solid fa-hand-fist fa-shake fa-sm" style="color: #ffffff;"></i></p>
             </div>
-            <div>
-                <img src="" alt="">
-                <p></p>
+            <div style="display: flex;flex-direction: column;align-items: center;">
+                <img src="./paper.png" alt="" height="100px" id="choiceImg">
+                <p id="caption"style="align-self: stretch;">Paper  <i class="fa-regular fa-hand fa-beat fa-sm"></i></p>
             </div>
-            <div>
-                <img src="" alt="">
-                <p></p>
+            <div style="display: flex;flex-direction: column;align-items: center;">
+                <img src="./scissors.png" alt="" height="100px" id="choiceImg">
+                <p id="caption"style="align-self: stretch;">Scissor  <i class="fa-regular fa-hand-scissors fa-flip fa-sm" style="color: #ffffff;"></i></p>
             </div>
         </div>
+        <div id="btnContainer">
+            <button></button>
+            <button></button>
+        </div>
     </main>
-    <script src="logic.js"></script>
 </body>
 </html>
