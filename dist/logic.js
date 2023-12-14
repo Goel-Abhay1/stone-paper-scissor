@@ -1,67 +1,86 @@
-let temp = document.querySelector("#messageContainer")
-let choiceUser = document.querySelectorAll("img");
-const randomSelection = ()=>{
-    const randomChoice = Math.floor(Math.random() * 3);
-    const choiceArr = [
-        "rock",
-        "paper",
-        "scissor"
-    ]
-    return choiceArr[randomChoice];
-}
-const newGame = document.querySelector('[data-action="newGame"]')
-newGame.addEventListener("click",()=>{
-    temp.innerText=""
-    temp.style.display="none"
-    newGame.style.display="none"
-})
-const winSituation = ()=>{
-    
-    temp.innerText = "You won the Game"
-}
-const tieSituation = ()=>{
-    temp.innerText = "Game Tied"
 
-}
-const loseSituation = ()=>{
-    temp.innerText = "You lose the Game"
+let rock = [(document.querySelector("#rockImg"))];
+rock.push(document.querySelector("#captionRock"))
+let paper = [document.querySelector("#paperImg"),document.querySelector("#captionPaper")]
+let scissor = [document.querySelector("#scissorImg"),document.querySelector("#captionScissor")]
 
+let countWin = 0;
+let countLose = 0;
+let countTie = 0;
+let arr = [rock,paper,scissor]
+const randomChoice = ()=>{
+    let avlChoice = ["rock","paper","scissor"]
+    return avlChoice[Math.floor(Math.random() * 3)]
 }
-choiceUser.forEach((element)=>{
-    element.addEventListener("click",()=>{
-        newGame.style.display=""
-        temp.style.display=""
-        let userChoice = element.getAttribute("value")
-        let randomChoice = randomSelection();
-        console.log(`Computer choice is ${randomChoice}`)
-        if(userChoice == randomChoice){
-            tieSituation();
-        }
-        else if(userChoice == "rock" ){
-            if(randomChoice == "paper"){
-                loseSituation();
-            }
-            else{
-                winSituation();
-            }
-        }
-        else if(userChoice=="paper"){
-            if(randomChoice=="rock"){
-                winSituation();
-            }
-            else{
-                loseSituation();
-            }
+const checkFor =(userChoice,computerChoice )=>{
+    if(userChoice == computerChoice){
+        console.log("tie")
+        countTie++;
+        updateCount()
+    }
+    else if(userChoice =="rock"){
+        if(computerChoice == "paper"){
+            console.log("lose")
+            countLose++;
+            updateCount()
+
         }
         else{
-            if(randomChoice=="rock"){
-                loseSituation();
-            }
-            else{
-                winSituation();
-            }
-        }
+            console.log("win")
+            countWin++;
+            updateCount()
 
-        
-    })
+        }
+    }
+    else if(userChoice == "paper"){
+        if(computerChoice == "rock"){
+            console.log("win")
+            countWin++;
+            updateCount()
+
+        }
+        else{
+            console.log("lose")
+            countLose++;
+            updateCount()
+
+        }
+    }
+    else{
+        if(computerChoice == "rock"){
+            console.log("lose")
+            countLose++;
+            updateCount()
+
+        }
+        else{
+            console.log("win")
+            countWin++
+            updateCount()
+
+        }
+    }
+}
+const updateCount = ()=>{
+    let winHTML = document.querySelector("#winHTML")
+    let loseHTML = document.querySelector("#loseHTML")
+    let tieHTML = document.querySelector("#tieHTML")
+    winHTML.innerText = `Win : ${countWin}`
+    loseHTML.innerText = `Lose : ${countLose}`
+    tieHTML.innerText = `Tie : ${countTie}`
+}
+for(let block of arr){
+    for(let content of block){
+        content.addEventListener("click",()=>{
+            let userChoice = content.getAttribute("value")
+            let computerChoice = randomChoice();
+            checkFor(userChoice,computerChoice);
+        })
+    }
+}
+
+let newGame  = document.querySelector("#newGame")
+newGame.addEventListener("click",()=>{
+    countLose=countTie=countWin=0;
+    
 })

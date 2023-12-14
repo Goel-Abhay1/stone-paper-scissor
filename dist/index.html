@@ -7,31 +7,43 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/87fe39bb20.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <header>
+<body style="display: flex; flex-direction: column; height: 100vh;">
+    <header style="flex-grow: 1;">
         <h1>
             Stone Paper Scissor
         </h1>
     </header>
-    <main>
+    <main style="flex-grow: 2;">
         <div id="imgContainer">
             <div style="display: flex;flex-direction: column;align-items: center;">
-                <img src="./rock.png" alt="" height="100px" id="choiceImg">
-                <p id="caption" style="align-self: stretch;">Rock testing time <i class="fa-solid fa-hand-fist fa-shake fa-sm" style="color: #ffffff;"></i></p>
+                <img src="./rock.png" alt="" height="100px" id="rockImg" value="rock">
+                <p id="captionRock" style="align-self: stretch;" value="rock">Rock <i class="fa-solid fa-hand-fist fa-shake fa-sm" style="color: #ffffff;"></i></p>
             </div>
             <div style="display: flex;flex-direction: column;align-items: center;">
-                <img src="./paper.png" alt="" height="100px" id="choiceImg">
-                <p id="caption"style="align-self: stretch;">Paper  <i class="fa-regular fa-hand fa-beat fa-sm"></i></p>
+                <img src="./paper.png" alt="" height="100px" id="paperImg" value="paper">
+                <p id="captionPaper"style="align-self: stretch;" value="paper">Paper  <i class="fa-regular fa-hand fa-beat fa-sm"></i></p>
             </div>
             <div style="display: flex;flex-direction: column;align-items: center;">
-                <img src="./scissors.png" alt="" height="100px" id="choiceImg">
-                <p id="caption"style="align-self: stretch;">Scissor  <i class="fa-regular fa-hand-scissors fa-flip fa-sm" style="color: #ffffff;"></i></p>
+                <img src="./scissors.png" alt="" height="100px" id="scissorImg" value="scissor">
+                <p id="captionScissor"style="align-self: stretch;" value="scissor">Scissor  <i class="fa-regular fa-hand-scissors fa-flip fa-sm" style="color: #ffffff;"></i></p>
             </div>
         </div>
         <div id="btnContainer">
-            <button></button>
-            <button></button>
+            <div class="userName">
+                <p id="userName">User Name : 
+                
+                </p>
+            </div>
+            <div class="count">
+                <p id="winHTML">Win : </p>
+                <p id="loseHTML">Lose : </p>
+                <p id="tieHTML">Tie : </p>
+            </div>
+            <div class="newGame">
+                <button id="newGame" class=""> New Game</button>
+            </div>
         </div>
     </main>
+    <script src="logic.js"></script>
 </body>
 </html>
